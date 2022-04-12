@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+//    id "jacoco"
+//    id 'java-library'
+}
+
+description = "gkh local instance"
+
+allprojects {
+    group 'ru.rob'
+    version '0.0.1-2022-04-10'
+}
+
+
+subprojects {
+    apply plugin: 'java'
+//    apply plugin: 'java-library'
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    repositories {
+//        mavenLocal()
+//        maven { url "https://repo.maven.apache.org/maven2" }
+        mavenCentral()
+        maven { url "http://localhost:8881/releases" }
+//        maven { url "http://localhost:8081/artifactory/simple/mfc-public" }
+    }
+
+    dependencies {
+/*        implementation('org.springframework.boot:spring-boot-starter-test:1.5.22.RELEASE') {
+            exclude(module: 'commons-logging')
+        }
+        implementation 'org.springframework.boot:spring-boot-starter-batch:1.5.22.RELEASE'
+        implementation 'org.springframework.boot:spring-boot-starter-cache:1.5.22.RELEASE'
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa:1.5.22.RELEASE'
+        implementation 'org.postgresql:postgresql:42.2.+'
+        implementation 'com.oracle:ojdbc6:11.2.0.4' */
+    }
+
+}
