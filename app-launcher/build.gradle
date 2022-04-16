@@ -8,14 +8,26 @@ plugins {
 description = ''
 
 dependencies {
-    implementation('org.springframework.boot:spring-boot-starter-test:1.5.22.RELEASE') {
+    compile project(':ejb')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+//    implementation 'ch.qos.logback:logback-core:1.2.+'
+//    implementation 'ch.qos.logback:logback-core:1.2.11'
+//    testImplementation 'org.slf4j:slf4j-api:1.8.0-beta4'
+//    testImplementation 'org.slf4j:slf4j-api:1.7.36'
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa:1.5.22.RELEASE')
+            /*{
         exclude(module: 'commons-logging')
-    }
-    implementation 'ch.qos.logback:logback-core:1.2.+'
-    testImplementation 'org.slf4j:slf4j-api:1.8.0-beta4'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:1.5.22.RELEASE'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+        exclude(module: 'org.slf4j')
+        exclude(module: 'ch.qos.logback')
+    }*/
+    implementation('org.springframework.boot:spring-boot-starter-test:1.5.22.RELEASE')
+            /*{
+        exclude(module: 'commons-logging')
+        exclude(module: 'org.slf4j')
+        exclude(module: 'junit')
+        exclude(module: 'org.hamcrest')
+    }*/
 }
 
 sourceSets {
@@ -26,3 +38,6 @@ sourceSets {
     }
 }
 
+test {
+    useJUnitPlatform()
+}

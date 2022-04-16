@@ -4,8 +4,11 @@ include ':ejb'
 include ':gkh-core'
 include ':gkh-model'
 include ':asu-shared'
+include ':web'
 
 project(':app-launcher').projectDir = "$rootDir/app-launcher" as File
 project(':gkh-core').projectDir = "$rootDir/gkh-core" as File
 project(':gkh-model').projectDir = "$rootDir/gkh-model" as File
 project(':asu-shared').projectDir = "$rootDir/asu-shared" as File
+project(':web').projectDir = "$rootDir/web" as File
+project(':ejb').projectDir = "$rootDir/ejb" as File
